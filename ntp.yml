@@ -1,0 +1,32 @@
+---
+# ntp application playbook
+
+- name: this is an ntp play
+  hosts: a2
+
+  tasks:
+
+#NTP package Task  
+
+  - name: Installing NTP package
+    yum: name=ntp state=installed 
+
+# copying NTP config file
+
+  - name: copying config file
+    copy: src=/etc/ansible/plays/ntp/ntp.conf dest=/etc/ntp.conf
+    notify:
+      - restart ntp
+
+# starting and enabling ntp services 
+
+  - name: starting and enabling ntp services
+    service: name=ntpd state=started enabled=yes
+
+#addling handlers
+
+  handlers:
+
+  - name: restart ntp
+    service: name=ntpd state=restarted
+...
