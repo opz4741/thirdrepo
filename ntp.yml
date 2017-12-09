@@ -8,6 +8,7 @@
 
 #NTP package Task  
 # test yogesh
+# test shabaz
 
   - name: Installing NTP package
     yum: name=ntp state=installed 
