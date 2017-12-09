@@ -7,7 +7,7 @@
   tasks:
 
 #NTP package Task  
-
+# This section is changed by Yogesh Raheja
   - name: Installing NTP package
     yum: name=ntp state=installed 
 
